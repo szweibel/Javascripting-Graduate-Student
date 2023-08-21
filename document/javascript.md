@@ -3255,9 +3255,9 @@ $("#poem a").click(function(){
 
 If you save and try to click on the word now, you should be rewarded with the info that was stored in the `.info` property about anaphora.
 
-Okay! So far so good. We've added in the ability to display info about words. However, all we currently have is one line of text. Surely we'd like to add _all_ the lines of the poem, right? Let's go about doing that now.
+Okay! So far so good. We've added in the ability to display info about words. However, all we currently have is one line of text. Surely we'd like to add _all_ the lines of the poem, right? We will go about that in the next chapter.
 
-## JSON
+# JSON
 
 To use our dataset (our poem) more efficiently, we'll use JSON. JSON stands for JavaScript Object Notation. We can use a JSON object (as a separate file) to store our poem data, and then use that data to populate our poem. 
 
