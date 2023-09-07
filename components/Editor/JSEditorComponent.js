@@ -10,7 +10,8 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 export default function JSEditorComponent({ defaultCode = '// Write JavaScript Here', ...props }) {
-    const [JScode, setJSCode] = useState(defaultCode);
+    const startingCode = props.text;
+    const [JScode, setJSCode] = useState(startingCode);
     const [runningCode, setRunningCode] = useState(false);
     const outputRef = useRef(null);
     const consoleRef = useRef(null);
@@ -44,6 +45,16 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
     function closeError() {
         setIsError(false);
     }
+
+    useEffect(() => {
+        setJSCode(startingCode);
+        if (props.askToRun === true) {
+            setTimeout(() => {
+                JSrun();
+            }, 1000);
+        }
+        props.setAskToRun(false);
+    }, [props.askToRun])
 
     // const outputComponent = () => {
     //     return (
@@ -199,7 +210,7 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
                 <EditorTopbar spinnerNeeded={runningCode}
                     snippets={filteredSnippets}
                     run={JSrun} language='JavaScript'
-                    defaultCode={defaultCode}
+                    defaultCode={startingCode}
                     setCode={setJSCode}
                     {...props}
                 />
