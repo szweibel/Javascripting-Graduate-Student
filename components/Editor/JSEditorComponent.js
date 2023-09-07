@@ -47,14 +47,12 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
     }
 
     useEffect(() => {
-        setJSCode(startingCode);
         if (props.askToRun === true) {
-            setTimeout(() => {
-                JSrun();
-                props.setAskToRun(false);
-            }, 1000);
+            setJSCode(startingCode);
+            JSrun();
+            props.setAskToRun(false);
         }
-    }, [props.askToRun])
+    }, [props.askToRun]);
 
     // const outputComponent = () => {
     //     return (
