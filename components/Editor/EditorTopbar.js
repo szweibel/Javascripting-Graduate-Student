@@ -51,7 +51,7 @@ export default function EditorTopbar(props) {
                         marginTop: "10px"
                     }}
                     />}
-                    {props.snippets && <FileList snippets={props.snippets} />}
+                    {/* {props.snippets && <FileList snippets={props.snippets} />} */}
 
 
                 {/* <Button

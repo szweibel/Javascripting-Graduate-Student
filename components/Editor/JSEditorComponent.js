@@ -51,9 +51,9 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
         if (props.askToRun === true) {
             setTimeout(() => {
                 JSrun();
+                props.setAskToRun(false);
             }, 1000);
         }
-        props.setAskToRun(false);
     }, [props.askToRun])
 
     // const outputComponent = () => {
