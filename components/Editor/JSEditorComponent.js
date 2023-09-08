@@ -49,7 +49,9 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
     useEffect(() => {
         if (props.askToRun === true) {
             setJSCode(startingCode);
-            JSrun();
+            setTimeout(() => {
+            JSrun(startingCode);
+            }, 300);
             props.setAskToRun(false);
         }
     }, [props.askToRun]);
@@ -162,7 +164,7 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
         outputRef.current += JSoutput(str) + "\n";
     }
 
-    var JSrun = function () {
+    var JSrun = function (theCode) {
         var str;
         setIsError(false);
         setIsoutput(false);
@@ -179,7 +181,7 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
             console.oldLog = console.log;
             console.log = log;
 
-            var result = eval(JScode);
+            var result = eval(theCode);
 
             for (var i = 0; i < logged.length; i++) {
                 consoleRef.current += JSoutput(logged[i]) + "\n";
@@ -202,12 +204,17 @@ export default function JSEditorComponent({ defaultCode = '// Write JavaScript H
         setJSCode(newValue);
     };
 
+    function showValue() {
+        var code = JScode;
+        JSrun(code);
+    }
+
     return (
         <>
             <div className="editorContainer" style={{ width: '100%' }}>
                 <EditorTopbar spinnerNeeded={runningCode}
                     snippets={filteredSnippets}
-                    run={JSrun} language='JavaScript'
+                    run={showValue} language='JavaScript'
                     defaultCode={startingCode}
                     setCode={setJSCode}
                     {...props}
