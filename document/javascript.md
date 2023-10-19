@@ -3168,7 +3168,7 @@ line1 = [{text:  "What", info: "Anaphora: The repetition of a word or phrase at 
     {text: "hurrying"}, {text: "human"}, {text: "tides"}, 
     {text: "or"}, {text: "day"}, {text: "or"}, {text: "night!"}];
 // Create a blank string that opens two tags.
-line1Text = "<blockquote><p>"; // opening tags for blockquote and p, we close them in the loop below
+line1Text = "<blockquote><p>"; // opening tags for blockquote and p, we close them after the loop
 line1.map(function(word){
   // Define a variable that will be the entirety of a single
   // word-sized chunk of information.
@@ -3182,6 +3182,9 @@ line1.map(function(word){
   // Add wordString plus a space to the line1Text.
   line1Text = line1Text + wordString + " ";
 });
+// Close the tags.
+line1Text = line1Text + "</p></blockquote>";
+
 $("#poem").html(line1Text);
 $("#poem a").click(function(){
     // Define the text and the word that was clicked.
@@ -3318,6 +3321,8 @@ line1.map(function(word){
   }
   line1Text = line1Text + wordString + " ";
 });
+line1Text = line1Text + "</p></blockquote>";
+
 $("#poem").html(line1Text);
 
 // Part 3 - Add the click event to the poem
