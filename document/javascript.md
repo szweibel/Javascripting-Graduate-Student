@@ -1280,7 +1280,7 @@ function functionName(parameter1, parameter2, ...) {
 }
 ```
 
-To create a function, you must first define the function name. Naming conventions for functions are [lower CamelCase](https://wiki.c2.com/?LowerCamelCase), in which the first word is lowercase and the following words begin with a capital letter. Next, you define the function's __parameters__ or __arguments__ within closed parentheses `()`. The parameters are the values that will be __passed__ into the function when it is called. Passing in parameters allows us to reuse the same function for different tasks, because we can pass in different values to the function each time we want to reuse it. The parameters are separated by commas. You can define as many parameters as you want.
+To create a function, you must first define the function name. Naming conventions for functions are [lower CamelCase](https://wiki.c2.com/?LowerCamelCase), in which the first word is lowercase and the following words begin with a capital letter. Next, you define the function's __parameters__ within closed parentheses `()`. The parameters are placeholders for the values that will be __passed__ into the function when it is called. Adding parameters allows us to reuse the same function for different tasks, because we can pass in different values to the function each time we want to reuse it. The parameters are separated by commas. You can define as many parameters as you want.
 
 Like loops, you can see that functions use curly braces to define their contents. The contents of the function are the code that will be executed whenever the function is called.
 
@@ -1306,7 +1306,7 @@ This is functionally the same result. The only difference is that we have create
 
 ## Calling a Function
 
-If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. The parentheses contain the values that will be passed into the function as parameters. Let's try calling the `add()` function with two number values:
+If you were to run the code above, you would see that nothing happens. This is because we have not __called__ the function yet. To call a function, we simply use the function name followed by parentheses. When we do this, the values contained in the parentheses passed into the function are called __arguments__. Let's try calling the `add()` function with two number values as __arguments__:
 
 ```JavaScript
 function add(num1, num2) {
@@ -1321,7 +1321,7 @@ Try running this code in the editor below.
 <CodeEditor language='JavaScript'>
     </CodeEditor>
 
-As you can see, the result of the `add()` function above returns 3 to the console. This is because `add()` takes two numbers as parameters and returns the sum of the two numbers. In this case, `num1` is 1 and `num2` is 2. If you change the values of `num1` and `num2` to different numbers, the result will also change. Again, this allows us to reuse the `add()` function to perform the same calculation on different values.
+As you can see, the result of the `add()` function above returns 3 to the console. This is because `add()` takes two numbers as __arguments__ and returns the sum of the two numbers. In this case, `num1` is 1 and `num2` is 2. If you change the values of `num1` and `num2` to different numbers, the result will also change. Again, this allows us to reuse the `add()` function to perform the same calculation on different values.
 
 We could also capture the result of the function in a variable and then work with that variable. For example:
 
@@ -1337,9 +1337,9 @@ alert(result);
 
 Here we are calling the `add` function and storing the result of the function (the return value) in the variable `result`. We can then use the variable to perform whatever action we want.
 
-__Note:__ Make sure you are passing in the correct number of parameters when calling a function (at least for functions you have created yourself. Built-in functions inherent to JavaScript can behave a little differently, but don't worry about that right now). If you call the function with too few parameters or too many parameters, your function will likely either behave in unexpected ways or throw an error.
+__Note:__ Make sure you are passing in the correct number of arguments when calling a function (at least for functions you have created yourself. Built-in functions inherent to JavaScript can behave a little differently, but don't worry about that right now). If you call the function with too few arguments or too many, your function will likely either behave in unexpected ways or throw an error.
 
-It is worth pointing out that you can also call a function with no parameters and also without an explicit `return` statement. For example, we can create a function called `alertHello` that will simply alert "Hello!" to the user.
+It is worth pointing out that you can also call a function with no arguments and also without an explicit `return` statement. For example, we can create a function called `alertHello` that will simply alert "Hello!" to the user.
 
 ```JavaScript
 function alertHello() {
