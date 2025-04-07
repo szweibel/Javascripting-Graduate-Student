@@ -3525,45 +3525,6 @@ Keeping these ideas in mind, let's get started working with Leaflet.
 
 You are likely very familiar with web maps. I personally have found myself quite lost in NYC before. While "being lost" is not necessarily a bad way of being sometimes, if you have a specific destination (not to mention a certain time) in mind, having a map is quite helpful. You know what I mean--Google or Apple provide us with interactive geo-location almost every second of our lives.
 
-Before we begin integrating web maps into our project, it might be helpful to consider the basic "layering" of a web map. Take a look at the map below. It was created using Leaflet, and you can see some of the code (HTML, CSS, and JavaScript) powering it on the side. Click on stuff and zoom and drag around on the map.
-
-<HTMLEditor >
-
-<html>
- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"/>
- <script src="https://unpkg.com/leaflet@1.7.0/dist/leaflet.js"></script>
-    <div id="map"></div>
-</html>
-<css>
-#map {
-    height: 600px;
-    width: 600px;
-}
-</css>
-<javascript>
-```
-var map = L.map('map').setView([51.505, -0.09], 13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-	maxZoom: 19,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-L.marker([51.5, -0.09]).addTo(map)
-    .bindPopup('Here is a pop-up<br> on a marker')
-    .openPopup();
-```
-</javascript>
-
-</HTMLEditor>
-<br />
-
-You'll notice that there are several "layers" to this map. Web maps can be layered in many ways, but the most basic can resolve into just a few:
-1. The background or tile layer--the map itself, with all its internal data about streets, boroughs, cities, etc.
-2. The foreground layer--the parts that overlay the map: the markers, lines, and other elements.
-3. The popup layer--the text or notification that appears when you click on a marker or other element on the map.
-4. The control layer--the buttons that control the map, such as the zoom buttons. This layer is usually on top of the other layers.
-
-These layers all work together to comprise the interactivity of the map. For our purposes, we will mostly work with the foreground layer and the popup layer.
-
 ## Getting Started with Leaflet
 
 Leaflet is fairly straightforward to get started with and allows for a wide array of customization.
